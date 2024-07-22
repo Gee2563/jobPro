@@ -29,10 +29,12 @@ export const login = async (email, password) => {
 
 // Get user account information
 export const getAccount = async (token) => {
+  console.log('Sending to back end Token:', token); 
   try {
     const response = await api.get('/users/me', {
       headers: { Authorization: `Bearer ${token}` }
     });
+    console.log('Response:', response.data);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Failed to fetch account');
@@ -99,5 +101,18 @@ export const getApplicationById = async (token, applicationId) => {
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Failed to fetch application');
+  }
+};
+
+// Update application stage
+export const updateApplicationStage = async (token, applicationId, stage) => {
+  try {
+    const response = await api.put(`/applications/${applicationId}`, { stage }, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    console.log('Response:', response.data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Failed to update application stage');
   }
 };
