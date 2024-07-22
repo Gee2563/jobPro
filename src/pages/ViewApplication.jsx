@@ -153,7 +153,7 @@ function ViewApplication() {
             <option value="research">Research</option>
             <option value="active">Active</option>
             <option value="applied">Applied</option>
-            <option value="follow ups">Follow Ups</option>
+            <option value="follow-ups">Follow Ups</option>
             <option value="interviewing">Interviewing</option>
             <option value="offers">Offers</option>
             <option value="reject/reviews">Reject/Reviews</option>
