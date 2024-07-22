@@ -7,6 +7,7 @@ import '../style.css';
 function NewApplication() {
   const [formData, setFormData] = useState({
     companyName: '',
+    companyWebsite: '',
     jobTitle: '',
     pay: '',
     jobDescription: '',
@@ -33,6 +34,7 @@ function NewApplication() {
         alert('Application added successfully');
         setFormData({
           companyName: '',
+          companyWebsite: '',
           jobTitle: '',
           pay: '',
           jobDescription: '',
@@ -54,6 +56,7 @@ function NewApplication() {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} placeholder="Company Name" required />
+      <input type="text" name="companyWebsite" value={formData.companyWebsite} onChange={handleChange} placeholder="Company Website" required />
       <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Job Title" required />
       <input type="text" name="pay" value={formData.pay} onChange={handleChange} placeholder="Pay" required />
       <textarea name="jobDescription" value={formData.jobDescription} onChange={handleChange} placeholder="Job Description" required></textarea>

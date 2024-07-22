@@ -19,14 +19,18 @@ function Navbar() {
       {user ? (
         <>
         <Link to="/applications">Application Tracker</Link>
+        <div className='user-logged-in'>
         <Link to="/my-account">Account</Link>
           <span>{user.email}</span>
           <button onClick={handleLogout}>Sign Out</button>
+        </div>
         </>
       ) : (
         <>
+        <div className='user-logged-out'>
           <Link to="/login">Log In</Link>
           <Link to="/register">Register</Link>
+        </div>
         </>
       )}
     </nav>

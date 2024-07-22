@@ -29,6 +29,7 @@ function AllApplications() {
       <div key={app._id} className="app-container">
         <h2>{app.companyName}</h2>
         <p><strong>Job Title:</strong> {app.jobTitle}</p>
+        <img src={`https://img.logo.dev/${app.companyWebsite}?token=pk_GS8EES80RXOLepVgd1-2ZQ`} alt="Company Logo" />
         <p><strong>Pay:</strong> {app.pay}</p>
         <p><strong>Application Date:</strong> {new Date(app.applicationDate).toLocaleDateString()}</p>
         <p><strong>Stage:</strong> {app.stage}</p>

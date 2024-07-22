@@ -46,6 +46,22 @@ function ViewApplication() {
   return (
     <div>
       <h2>{application.companyName}</h2>
+      <img src={`https://img.logo.dev/${application.companyWebsite}?token=pk_GS8EES80RXOLepVgd1-2ZQ`} alt="Company Logo" />
+      <div>
+        <label>Company Website</label>
+        {isEditing ? (
+          <input
+            type="text"
+            name="companyWebsite"
+            value={application.companyWebsite}
+            onChange={handleChange}
+          />
+        ) : (
+          <a href={application.companyWebsite} target="_blank" rel="noreferrer">
+            {application.companyWebsite}
+          </a>
+        )}
+      </div>
       <div>
         <label>Job Title:</label>
         {isEditing ? (
