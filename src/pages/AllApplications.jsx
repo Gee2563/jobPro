@@ -64,7 +64,7 @@ function AllApplications() {
   }
 
   const applicationStages = [
-    { title: 'Active and Researching', filter: app => ['active', 'research'].includes(app.stage), sectionId: 'active_research' },
+    { title: 'Active and Researching', filter: app => ['active/research'].includes(app.stage), sectionId: 'active/research' },
     { title: 'Applied', filter: app => app.stage === 'applied', sectionId: 'applied' },
     { title: 'Follow-Ups', filter: app => app.stage === 'follow-ups', sectionId: 'follow-ups' },
     { title: 'Interviewing', filter: app => app.stage === 'interviewing', sectionId: 'interviewing' },

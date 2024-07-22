@@ -84,8 +84,7 @@ function NewApplication() {
       <input type="text" name="poiLinkedIn" value={formData.poiLinkedIn} onChange={handleChange} placeholder="POI LinkedIn" />
       <input type="text" name="extraInfo" value={formData.extraInfo} onChange={handleChange} placeholder="Extra Info" />
       <select name="stage" value={formData.stage} onChange={handleChange}>
-        <option value="research">Research</option>
-        <option value="active">Active</option>
+        <option value="active/research">Active/Researching</option>
         <option value="applied">Applied</option>
         <option value="follow-ups">Follow Ups</option>
         <option value="interviewing">Interviewing</option>

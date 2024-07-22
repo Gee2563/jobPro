@@ -150,8 +150,7 @@ function ViewApplication() {
             value={application.stage}
             onChange={handleChange}
           >
-            <option value="research">Research</option>
-            <option value="active">Active</option>
+            <option value="active/research">Active/Researching</option>
             <option value="applied">Applied</option>
             <option value="follow-ups">Follow Ups</option>
             <option value="interviewing">Interviewing</option>
