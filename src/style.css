@@ -1,3 +1,4 @@
+/* Overall Body Styling */
 body {
   background-color: #fcfefe; /* Cream background */
   font-family: Arial, sans-serif;
@@ -8,54 +9,77 @@ body {
   height: 100vh;
 }
 
+/* Navbar Styling */
 nav {
-  background-color: #f2f2f2;
-  color: #393e46;
-  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #555454;
-  border-radius: 5%;
+  padding: 0 20px; /* Adjust as needed */
+  background-color: #f8f8f8; /* Adjust as needed */
+  border-bottom: 1px solid #ddd; /* Adjust as needed */
 }
 
-nav a {
-  color: #393e46;
-  text-decoration: none;
-  margin: 0 10px;
+/* Navbar Left Side (Home) */
+nav .home-link {
+  flex: 1;
 }
 
-nav .left {
+/* Navbar Center Links */
+nav .app-links {
   display: flex;
+  justify-content: center;
+  flex: 2;
 }
 
-nav .right {
+/* Navbar Right Side (Account and Logout) */
+nav .user-logged-in {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: flex-end;
 }
 
-nav .right a {
-  margin-left: 20px;
+nav .user-logged-out {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between login and register links */
 }
 
+/* Navbar Link Styling */
+nav a {
+  text-decoration: none;
+  color: #333; /* Adjust as needed */
+  margin: 0 10px; /* Space between links */
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
+/* Main Container Styling */
 .container {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
 }
 
+/* Headings */
 h1, h2 {
   color: #333;
 }
 
+/* Application Card Styling */
 .app-container {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Button Styling */
 button {
   background-color: #524e58bd;
   color: white;
@@ -66,22 +90,24 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #6b816c4f;
 }
 
+/* All Applications Layout */
 .all-applications {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in width */
 }
 
+/* Column Styling (Optional for Specific Layouts) */
 .column {
-  flex: 1;
   margin: 10px;
-  min-width: 200px;
-  max-width: 300px;
 }
 
+/* Body Styling for Centered Content */
 .body {
   display: flex;
   flex-direction: column;
