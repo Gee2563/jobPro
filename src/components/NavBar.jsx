@@ -18,11 +18,20 @@ function Navbar() {
       
       {user ? (
         <>
-        <Link to="/applications">Application Tracker</Link>
+        
         <div className='user-logged-in'>
+          <div className ='app-links'>
+          <Link to="/applications">Application Tracker</Link>
+          <Link to="/tailor-CV">Customise your CV</Link>
+          <Link to="/generate-cover-letter">Cover Letter Gen</Link>
+          {/* <Link to="Interview Prep">Interview Prep</Link> */}
+          {/* <Link to="Job Search">Job Search</Link>*/}
+          </div>
+        <div className='center'>
         <Link to="/my-account">Account</Link>
           <span>{user.email}</span>
           <button onClick={handleLogout}>Sign Out</button>
+        </div>
         </div>
         </>
       ) : (
