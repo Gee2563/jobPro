@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.drag-handle {
+  cursor: grab;
+  margin-right: 10px;
+}
+.drag-handle span {
+  display: inline-block;
+  background: #ccc;
+  padding: 5px;
+  border-radius: 3px;
+}
