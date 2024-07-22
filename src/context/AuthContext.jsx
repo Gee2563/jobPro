@@ -9,10 +9,15 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (token) {
+      console.log('Token from localStorage:', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get('/api/users/me')
-        .then(response => setUser(response.data))
-        .catch(() => {
+      axios.get('/api/users/me')  // Make sure this is the correct endpoint
+        .then(response => {
+          console.log('User data:', response.data);
+          setUser(response.data);
+        })
+        .catch(err => {
+          console.error('Error fetching user data:', err);
           localStorage.removeItem('authToken');
           setUser(null);
         });
@@ -20,10 +25,14 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const response = await axios.post('/api/users/login', { email, password });
-    localStorage.setItem('authToken', response.data.token);
-    axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-    setUser(response.data);
+    try {
+      const response = await axios.post('/api/users/login', { email, password });
+      localStorage.setItem('authToken', response.data.token);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+      setUser(response.data);
+    } catch (error) {
+      console.error('Login error:', error);
+    }
   };
 
   const logout = () => {
