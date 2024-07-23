@@ -10,6 +10,7 @@ import NewApplication from './pages/NewApplication';
 import Applications from './pages/AllApplications';
 import ViewApplication from './pages/ViewApplication';
 import ProtectedRoute from './components/ProtectedRoutes';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/my-account' element={<ProtectedRoute><Account /></ProtectedRoute>} />
 
         </Routes>
+        <Footer />
       </Router>
     </AuthProvider>
   );
