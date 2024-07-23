@@ -15,7 +15,7 @@ function NewApplication() {
     poiName: '',
     poiLinkedIn: '',
     extraInfo: '',
-    stage: 'research'
+    stage: 'active/research'
   });
 
   const [errors, setErrors] = useState({});
@@ -57,7 +57,7 @@ function NewApplication() {
           poiName: '',
           poiLinkedIn: '',
           extraInfo: '',
-          stage: 'research'
+          stage: 'active/research'
         });
         navigate('/applications');
       }
