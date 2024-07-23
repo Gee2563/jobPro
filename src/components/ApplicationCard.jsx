@@ -2,7 +2,9 @@ import React from 'react';
 import { Draggable } from "@hello-pangea/dnd";
 import { Link } from 'react-router-dom';
 
-const ApplicationCard = ({ app, index }) => (
+const ApplicationCard = ({ app, index }) => {
+  const validatedDomain = app.companyWebsite.replace(/(^\w+:|^)\/\//, '')
+  return(
   <Draggable draggableId={app._id} index={index}>
     {(provided) => (
       <div
@@ -10,12 +12,9 @@ const ApplicationCard = ({ app, index }) => (
         ref={provided.innerRef}
         {...provided.draggableProps}
       >
-        <div {...provided.dragHandleProps} className="drag-handle">
-          <span>☰</span> {/* This can be an icon */}
-        </div>
-        <h2>{app.companyName}</h2>
+        <h2 {...provided.dragHandleProps} className="drag-handle">{app.companyName}</h2>
         <p><strong>Job Title:</strong> {app.jobTitle}</p>
-        <img src={`https://img.logo.dev/${app.companyWebsite}?token=pk_GS8EES80RXOLepVgd1-2ZQ`} alt="Company Logo" />
+        <img src={`https://img.logo.dev/${validatedDomain}?token=pk_GS8EES80RXOLepVgd1-2ZQ`} alt="Company Logo" />
         <p><strong>Pay:</strong> {app.pay}</p>
         <p><strong>Application Date:</strong> {new Date(app.applicationDate).toLocaleDateString()}</p>
         <p><strong>Stage:</strong> {app.stage}</p>
@@ -26,6 +25,8 @@ const ApplicationCard = ({ app, index }) => (
       </div>
     )}
   </Draggable>
-);
+  )
+}
+
 
 export default ApplicationCard;
