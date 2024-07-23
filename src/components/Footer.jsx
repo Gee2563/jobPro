@@ -1,19 +1,18 @@
 // src/components/Footer.js
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer>
-      <ul>
-        <li>About</li>
-        <li>ToS</li>
-        <li>Cookies</li>
-        <li>Contact</li>
-        <li>My projects</li>
-      </ul>
+    <footer className="footer">
+  
+      <Link to="/about">About</Link>
+
+      <Link to="/contact">Contact</Link>
+
+      <Link to="/projects">Projects</Link>
     </footer>
   );
 }
 
 export default Footer;
-
