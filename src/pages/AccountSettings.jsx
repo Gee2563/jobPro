@@ -1,7 +1,7 @@
+// src/components/Account.js
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
-import '../style.css';
 
 function Account() {
   const { user } = useContext(AuthContext);
@@ -10,12 +10,13 @@ function Account() {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [cvs, setCvs] = useState([]);
-  const [cvFile, setCvFile] = useState(null);
+  const [cvContent, setCvContent] = useState('');
+  const [cvComments, setCvComments] = useState('');
 
   useEffect(() => {
     const fetchCvs = async () => {
       try {
-        const { data } = await axios.get('/api/users/cvs', {
+        const { data } = await axios.get('/api/uploaded-cvs', {
           headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
         });
         setCvs(data);
@@ -42,27 +43,36 @@ function Account() {
     }
   };
 
-  const handleCvUpload = async (e) => {
+  const handleCvSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('cv', cvFile);
+    const cvFilename = `CV_${new Date().toISOString()}.txt`;
+
     try {
-      const { data } = await axios.post('/api/users/cvs', formData, {
+      const payload = {
+        cvComments,
+        cvContent,
+        cvFilename
+      };
+
+      const { data } = await axios.post('/api/uploaded-cvs', payload, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
       });
+
       setCvs([...cvs, data]);
-      setCvFile(null);
+      setCvContent('');
+      setCvComments('');
     } catch (error) {
-      console.error('Failed to upload CV', error);
+      console.error('Failed to submit CV', error);
+      alert('Failed to submit CV');
     }
   };
 
   const handleCvRemove = async (cvId) => {
     try {
-      await axios.delete(`/api/users/cvs/${cvId}`, {
+      await axios.delete(`/api/uploaded-cvs/${cvId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
       });
       setCvs(cvs.filter(cv => cv._id !== cvId));
@@ -82,17 +92,31 @@ function Account() {
         <button onClick={handlePasswordChange}>Update Password</button>
       </div>
       <div>
-        <h3>Upload CV</h3>
-        <form onSubmit={handleCvUpload}>
-          <input type="file" onChange={(e) => setCvFile(e.target.files[0])} />
-          <button type="submit">Upload</button>
+        <h3>Paste CV</h3>
+        <form onSubmit={handleCvSubmit}>
+          <textarea
+            placeholder="Paste your CV content here"
+            value={cvContent}
+            onChange={(e) => setCvContent(e.target.value)}
+            rows="10"
+            cols="50"
+          />
+          <input
+            type="text"
+            placeholder="Add comments for your CV"
+            value={cvComments}
+            onChange={(e) => setCvComments(e.target.value)}
+          />
+          <button type="submit">Submit</button>
         </form>
         <div>
-          <h4>Uploaded CVs</h4>
+          {/* Need to include lines */}
+          <h4>Submitted CVs</h4>
           <ul>
             {cvs.map(cv => (
               <li key={cv._id}>
-                {cv.name} <button onClick={() => handleCvRemove(cv._id)}>Remove</button>
+                <h2>{cv.cvComments}</h2>
+                <p>{cv.cvContent}</p> <button onClick={() => handleCvRemove(cv._id)}>Remove</button>
               </li>
             ))}
           </ul>
