@@ -11,7 +11,9 @@ import Applications from './pages/AllApplications';
 import ViewApplication from './pages/ViewApplication';
 import ProtectedRoute from './components/ProtectedRoutes';
 import Footer from './components/Footer';
-
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Projects from './pages/Projects';
 function App() {
   return (
     <AuthProvider>
@@ -26,6 +28,11 @@ function App() {
           <Route path="/applications" element={<ProtectedRoute><Applications /></ProtectedRoute>} />
           <Route path="/application/:id" element={<ProtectedRoute><ViewApplication /></ProtectedRoute>} />
           <Route path='/my-account' element={<ProtectedRoute><Account /></ProtectedRoute>} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/projects' element={<Projects />} />
+
+
 
         </Routes>
         <Footer />
