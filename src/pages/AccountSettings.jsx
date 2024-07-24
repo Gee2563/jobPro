@@ -45,13 +45,13 @@ function Account() {
 
   const handleCvSubmit = async (e) => {
     e.preventDefault();
-    const cvFilename = `CV_${new Date().toISOString()}.txt`;
+    const cvFileName = `CV_${new Date().toISOString()}`;
 
     try {
       const payload = {
         cvComments,
         cvContent,
-        cvFilename
+        cvFileName
       };
 
       const { data } = await axios.post('/api/uploaded-cvs', payload, {
