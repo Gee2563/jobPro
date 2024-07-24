@@ -14,6 +14,8 @@ import Footer from './components/Footer';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
+import TailorCV from './components/TailorCv';
+import ViewTailoredCv from './pages/ViewTailoredCV';
 function App() {
   return (
     <AuthProvider>
@@ -31,9 +33,8 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/projects' element={<Projects />} />
-
-
-
+          <Route path='/tailor-cv' element={<ProtectedRoute><TailorCV /></ProtectedRoute>} />
+          <Route path='/tailor-cv/:id' element={<ProtectedRoute><ViewTailoredCv /></ProtectedRoute>} />
         </Routes>
         <Footer />
       </Router>
