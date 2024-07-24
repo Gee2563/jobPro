@@ -1,4 +1,8 @@
-/* Overall Body Styling */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Body Styling */
 body {
   background-color: #fcfefe; /* Cream background */
   font-family: Arial, sans-serif;
@@ -131,3 +135,5 @@ main {
   justify-content: center;
   height: 100vh;
 }
+
+
