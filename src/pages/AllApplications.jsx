@@ -75,15 +75,20 @@ function AllApplications() {
     <div id='all-applications'>
       <h1>All Applications</h1>
       <DragDropContext onDragEnd={onDragEnd}>
+      <div className="flex w-full flex-col lg:flex-row">
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {applicationStages.map(({ title, filter, sectionId }) => (
+            <div className="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center">
             <ApplicationSection
               key={sectionId}
               title={title}
               applications={applications.filter(filter)}
               sectionId={sectionId}
             />
+            <div className="divider lg:divider-horizontal"></div>
+            </div>
           ))}
+            </div>
         </div>
       </DragDropContext>
       <Link to="/new-application">
