@@ -1,45 +1,64 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+import Home from './components/Home';
+
+import Register from './components/Account/Register';
+import Login from './components/Account/Login';
+import Account from './components/Account/AccountSettings';
+
+import AllApplications from './components/Application/AllApplications';
+import NewApplication from './components/Application/NewApplication';
+import ViewApplication from './components/Application/ViewApplication';
+
+import About from './components/Misc/About';
+import Contact from './components/Misc/Contact';
+import Projects from './components/Misc/Projects';
+import ProtectedRoute from './components/Misc/ProtectedRoutes';
+import Navbar from './components/Misc/NavBar';
+import Footer from './components/Misc/Footer';
+
+import ViewTailoredCv from './components/TailoredCvs/ViewTailoredCV';
+import TailorCv from './components/TailoredCvs/TailorCv';
+
+import AllUploadedCv from './components/UploadedCvs/AllUploadedCv';
+import UploadACv from './components/UploadedCvs/UploadACv';
+import ViewUploadedCv from './components/UploadedCvs/ViewUploadedCv';
 import { AuthProvider } from './context/AuthContext';
-import Navbar from './components/NavBar';
-import Home from './pages/Home';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Account from './pages/AccountSettings';
-import NewApplication from './pages/NewApplication';
-import Applications from './pages/AllApplications';
-import ViewApplication from './pages/ViewApplication';
-import ProtectedRoute from './components/ProtectedRoutes';
-import Footer from './components/Footer';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Projects from './pages/Projects';
-import TailorCV from './components/TailorCv';
-import ViewTailoredCv from './pages/ViewTailoredCV';
+
+
+
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <Navbar />
+    <Router>
+      <Navbar/>
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
-          <Route path="/new-application" element={<ProtectedRoute><NewApplication /></ProtectedRoute>} />
-          <Route path="/applications" element={<ProtectedRoute><Applications /></ProtectedRoute>} />
-          <Route path="/application/:id" element={<ProtectedRoute><ViewApplication /></ProtectedRoute>} />
-          <Route path='/my-account' element={<ProtectedRoute><Account /></ProtectedRoute>} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/tailor-cv' element={<ProtectedRoute><TailorCV /></ProtectedRoute>} />
-          <Route path='/tailor-cv/:id' element={<ProtectedRoute><ViewTailoredCv /></ProtectedRoute>} />
+          <Route path="/account" element={<ProtectedRoute><Account/></ProtectedRoute>} />
+          <Route path="/applications" element={<ProtectedRoute><AllApplications/></ProtectedRoute>} />
+          <Route path="/applications/new" element={<ProtectedRoute><NewApplication/></ProtectedRoute>} />
+          <Route path="/applications/:id" element={<ProtectedRoute><ViewApplication/></ProtectedRoute>} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/tailoredcv" element={<ProtectedRoute><TailorCv/></ProtectedRoute>} />
+          <Route path="/tailoredcv/:id" element={<ProtectedRoute><ViewTailoredCv/></ProtectedRoute>} />
+          <Route path="/uploadedcv" element={<ProtectedRoute><AllUploadedCv/></ProtectedRoute>} />
+          <Route path="/uploadedcv/new" element={<ProtectedRoute><UploadACv/></ProtectedRoute>} />
+          <Route path="/uploadedcv/:id" element={<ProtectedRoute><ViewUploadedCv/></ProtectedRoute>} />
         </Routes>
-        <Footer />
-      </Router>
+        <Footer/>
+ 
+    </Router>
     </AuthProvider>
   );
 }
 
 export default App;
+

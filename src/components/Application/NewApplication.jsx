@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import {addApplication} from '../../services/applicationApi';
 import { useNavigate } from 'react-router-dom';
-import '../style.css';
+
 
 function NewApplication() {
   const [formData, setFormData] = useState({
@@ -43,7 +43,8 @@ function NewApplication() {
       return;
     }
     try {
-      const response = await axios.post('/api/applications', formData);
+      const response = await addApplication(formData);
+      console.log('I have received this response from the backend:', response.status);
       if (response.status === 201) {
         alert('Application added successfully');
         setFormData({

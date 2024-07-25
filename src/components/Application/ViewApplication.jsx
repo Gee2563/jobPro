@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import '../style.css';
+import { getApplicationById, updateApplication } from '../../services/applicationApi';
 
 function ViewApplication() {
   const { id } = useParams();
@@ -11,8 +10,9 @@ function ViewApplication() {
   useEffect(() => {
     const fetchApplication = async () => {
       try {
-        const response = await axios.get(`/api/applications/${id}`);
-        setApplication(response.data);
+        const response = await getApplicationById(id);
+        console.log('Application:', response);
+        setApplication(response);
       } catch (error) {
         console.error('Failed to fetch application', error);
       }
@@ -35,7 +35,7 @@ function ViewApplication() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/api/applications/${id}`, application);
+      await updateApplication(id, application);
       alert('Application updated');
       setIsEditing(false); // Exit edit mode after successful update
     } catch (error) {

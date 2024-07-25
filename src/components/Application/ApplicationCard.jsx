@@ -19,7 +19,7 @@ const ApplicationCard = ({ app, index }) => {
         <p><strong>Application Date:</strong> {new Date(app.applicationDate).toLocaleDateString()}</p>
         <p><strong>Stage:</strong> {app.stage}</p>
         <p><strong>Comments:</strong> {app.comments}</p>
-        <Link to={`/application/${app._id}`}>
+        <Link to={`/applications/${app._id}`}>
           <button>View Application</button>
         </Link>
       </div>

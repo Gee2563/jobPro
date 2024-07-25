@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getTailoredCvs, addTailoredCv} from "../../services/tailoredCvsApi";
+import { getUploadedCvs } from "../../services/uploadedCvsApi";
 
 const TailorCv = () => {
     const [allCv, setAllCv] = useState([]);
@@ -17,11 +18,8 @@ const TailorCv = () => {
     useEffect(() => {
         const fetchAllData = async () => {
             try {
-                const [cvResponse, tailorCvResponse] = await Promise.all([
-                    axios.get('/api/uploaded-cvs'),
-                    axios.get('/api/tailored-cvs')
-                ]);
-                setAllCv(cvResponse.data || []);
+                const cvResponse = await getUploadedCvs();
+                setAllCv(cvResponse || []);
                 setLoading(false);
             } catch (error) {
                 console.error('Failed to fetch data:', error);
@@ -55,8 +53,7 @@ const TailorCv = () => {
             return;
         }
         try {
-            console.log('Form data:', formData);
-            const response = await axios.post('/api/tailored-cvs', formData);
+            const response = await addTailoredCv(formData);
             if (response.status === 201) {
                 alert('Tailored CV added successfully');
                 setFormData({
@@ -64,7 +61,8 @@ const TailorCv = () => {
                     companyWebsite: '',
                     jobDescriptionUrl: '',
                 });
-                navigate('/tailor-cv/' + response.data._id);
+                console.log(response.data._id)
+                navigate('/tailoredcv/' + response.data._id);
             }
         } catch (error) {
             console.error('Failed to add tailored CV:', error);
