@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DragDropContext } from "@hello-pangea/dnd";
-import axios from 'axios';
-import ApplicationSection from '../components/ApplicationSection';
-import '../style.css';
+import { getAllApplications, updateApplicationStage, updatedApplication } from '../../services/applicationApi';
+import ApplicationSection from './ApplicationSection';
 
 
-// Needs refactoring - not happy with the fact I have axios calls in the component
 function AllApplications() {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [application, setApplication] = useState(null);
+  
 
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const response = await axios.get('/api/applications');
-        setApplications(response.data || []);
+        const response = await getAllApplications();
+        console.log('Response:', response); // Should log the response object
+        setApplications(response || []); // Access the correct part of the response
         setLoading(false);
       } catch (error) {
         console.error('Failed to fetch applications:', error);
@@ -45,8 +44,8 @@ function AllApplications() {
 
     // Update the application stage in the backend
     try {
-      const token = localStorage.getItem('token'); 
-      await axios.put(`/api/applications/${result.draggableId}`, updatedApplication);
+      
+      await updateApplicationStage(result.draggableId, destinationStage);
       // will remove this line when I'm 100% happy with the code
       alert('Application stage updated');
     } catch (error) {
@@ -72,6 +71,7 @@ function AllApplications() {
   ];
 
   return (
+    console.log('Applications:', applications),
     <div id='all-applications'>
       <h1>All Applications</h1>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -91,7 +91,7 @@ function AllApplications() {
             </div>
         </div>
       </DragDropContext>
-      <Link to="/new-application">
+      <Link to="/applications/new">
         <button>Create New Application</button>
       </Link>
     </div>

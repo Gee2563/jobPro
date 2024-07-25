@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { register } from '../services/api'; // Import the register function from api.js
-import { AuthContext } from '../context/AuthContext';
-import '../style.css';
+import { register } from '../../services/accountApi';
+import { AuthContext } from '../../context/AuthContext';
+
 
 function Register() {
   const [email, setEmail] = useState('');

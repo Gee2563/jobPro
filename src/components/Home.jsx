@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import '../style.css';
-
 function Home() {
   const { user } = useContext(AuthContext); // Access user from AuthContext
 

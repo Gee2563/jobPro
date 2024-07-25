@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { getTailoredCvById, updateTailoredCv } from "../../services/tailoredCvsApi";
 
 function ViewTailoredCv() {
     const { id } = useParams();
@@ -13,8 +13,8 @@ function ViewTailoredCv() {
         const fetchTailoredCv = async () => {
             try {
                 console.log('requesting tailored cv');
-                const response = await axios.get(`/api/tailored-cvs/${id}`);
-                setTailoredCv(response.data);
+                const response = await getTailoredCvById(id);
+                setTailoredCv(response);
                 setLoading(false);
             } catch (error) {
                 console.log('error fetching tailored cv');
@@ -45,7 +45,7 @@ function ViewTailoredCv() {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`/api/tailored-cvs/${id}`, tailoredCv);
+            await updateTailoredCv(id, tailoredCv);
             alert("Tailored CV updated");
             setIsEditing(false);
         } catch (error) {
