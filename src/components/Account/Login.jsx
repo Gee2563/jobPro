@@ -21,7 +21,7 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="Login" onSubmit={handleSubmit}>
       <input
         type="email"
         value={email}

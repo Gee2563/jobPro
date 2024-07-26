@@ -12,16 +12,18 @@ const ApplicationCard = ({ app, index }) => {
         ref={provided.innerRef}
         {...provided.draggableProps}
       >
+        <img className="company-logo" src={`https://img.logo.dev/${validatedDomain}?token=pk_GS8EES80RXOLepVgd1-2ZQ`} alt="Company Logo" />
+        <div>
         <h2 {...provided.dragHandleProps} className="drag-handle">{app.companyName}</h2>
         <p><strong>Job Title:</strong> {app.jobTitle}</p>
-        <img src={`https://img.logo.dev/${validatedDomain}?token=pk_GS8EES80RXOLepVgd1-2ZQ`} alt="Company Logo" />
+        
         <p><strong>Pay:</strong> {app.pay}</p>
-        <p><strong>Application Date:</strong> {new Date(app.applicationDate).toLocaleDateString()}</p>
-        <p><strong>Stage:</strong> {app.stage}</p>
-        <p><strong>Comments:</strong> {app.comments}</p>
+        <p><strong>Applied on:</strong> {new Date(app.applicationDate).toLocaleDateString()}</p>
+    
         <Link to={`/applications/${app._id}`}>
-          <button>View Application</button>
+          <button className='small-button'>View Application</button>
         </Link>
+        </div>
       </div>
     )}
   </Draggable>

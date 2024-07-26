@@ -35,15 +35,17 @@ function AllUploadedCv() {
     return (
         <>
         <h2>All Uploaded CVs</h2>
+        <ul>
         {cvs.map(cv => (
-            <div>
-            <h2>{cv.cvComments}</h2>
-            <p> {cv.cvContent}</p>
-        </div>
+            
+            <li key={cv.id}>
+            <Link to={`/uploadedcv/${cv.id}`}>{cv.cvComments}</Link>
+            </li>
         ))}
+        </ul>
+        <br/>
 
         <Link to="/upload-cv">Upload a CV</Link>
-
         </>
     );
     

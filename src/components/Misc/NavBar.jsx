@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import '../../style.css';
+import Login from '../Account/Login';
+
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -14,31 +15,31 @@ function Navbar() {
 
   return (
     <nav>
-      <Link to="/">Home</Link>
+
+      <Link className="left-side" to="/">Home</Link>
       
       {user ? (
         <>
         
         <div className='user-logged-in'>
-          <div className ='app-links'>
+          <div className ='nav-center'>
           <Link to="/applications">Application Tracker</Link>
           <Link to="/tailoredcv">Tailored CV</Link>
           <Link to="/generate-cover-letter">Cover Letter Gen</Link>
           {/* <Link to="Interview Prep">Interview Prep</Link> */}
           {/* <Link to="Job Search">Job Search</Link>*/}
           </div>
-        <div className='center'>
+        <div className='right-side'>
         <Link to="/account">Account</Link>
-          <span>{user.email}</span>
+          <span className='display-email'>{user.email}</span>
           <button onClick={handleLogout}>Sign Out</button>
         </div>
         </div>
         </>
       ) : (
         <>
-        <div className='user-logged-out'>
-          <Link to="/login">Log In</Link>
-          <Link to="/register">Register</Link>
+        <div className='nav-center'>
+
         </div>
         </>
       )}
