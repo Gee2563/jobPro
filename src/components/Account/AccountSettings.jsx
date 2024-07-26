@@ -38,20 +38,20 @@ function Account() {
 
 
   return (
-    <div>
+    <main>
       <h2>Account Settings</h2>
       <div>
         <h3>Change Password</h3>
-        <input type="password" placeholder="Current Password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
-        <input type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-        <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+        <input className="password-input" type="password" placeholder="Current Password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
+        <input className="password-input" type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+        <input className="password-input" type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
         <button onClick={handlePasswordChange}>Update Password</button>
 
       
       </div>
       <UploadACv />
       <AllUploadedCv />
-    </div>
+    </main>
   );
 }
 
