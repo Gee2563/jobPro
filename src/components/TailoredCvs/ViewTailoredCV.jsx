@@ -54,7 +54,7 @@ function ViewTailoredCv() {
     };
 
     return (
-        <div>
+        <div className="view-tailored-cv">
             <h2>Your Tailored CV</h2>
             {isEditing ? (
                 <div>
@@ -63,14 +63,14 @@ function ViewTailoredCv() {
                         value={tailoredCv.tailoredCvContent}
                         onChange={handleChange}
                         rows="10"
-                        cols="50"
+                        style={{ width: '100%', boxSizing: 'border-box' }} // Ensure it fits within its container
                     />
                     <button onClick={handleUpdate}>Save</button>
                     <button onClick={() => setIsEditing(false)}>Cancel</button>
                 </div>
             ) : (
                 <div>
-                    <pre>{tailoredCv.tailoredCvContent}</pre>
+                    <pre className="tailored-cv-content">{tailoredCv.tailoredCvContent}</pre>
                     <button onClick={handleEdit}>Edit</button>
                 </div>
             )}

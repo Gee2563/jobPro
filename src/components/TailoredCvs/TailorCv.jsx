@@ -74,7 +74,7 @@ const TailorCv = () => {
     if (error) return <div>Error: {error.message}</div>;
 
     return (
-        <div>
+        <main>
             <h1>Tailor CV</h1>
             <form onSubmit={handleSubmit}>
                 <label>
@@ -105,7 +105,7 @@ const TailorCv = () => {
                     </ul>
                 </div>
             )}
-        </div>
+        </main>
     );
 }
 
