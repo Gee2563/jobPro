@@ -1,139 +1,258 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-/* Body Styling */
-body {
-  background-color: #fcfefe; /* Cream background */
-  font-family: Arial, sans-serif;
+/* General Body and Screen Styles */
+.screen {
+  background-color: #f0f2f5;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #1f1f28;
   margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh; /* Ensure the screen takes up at least the full viewport height */
 }
 
-/* Footer Styling */
-footer {
+/* Remove default body margin */
+body {
+  margin: 0;
+}
+
+.welcome-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+}
+
+/* Navbar Styles */
+nav {
+  background-color:  #4267b2
+  ; /* Slate gray */
+  color: #f5feff
+  ; /* Light grey */
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px; /* Adjust as needed */
-  background-color: #f8f8f8; /* Adjust as needed */
-  border-bottom: 1px solid #ddd; /* Adjust as needed */
+  border-radius: 0px;
+}
+
+/* Home Link Style */
+nav .home {
+  flex: 1; /* Take up available space on the left */
+  text-align: left;
+}
+
+/* Navigation Links */
+nav a {
+  color: #f5feff;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: #f5feff82; /* Darker shade for hover effect */
+  border-radius: 4px;
+}
+
+/* User Logged-In/Out Styles */
+nav .user-logged-out,
+nav .user-logged-in {
+  display: flex;
+  align-items: center;
+}
+
+nav .user-logged-out {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+nav .user-logged-in {
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+/* Centered Navigation Content */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* Right-Side Navigation */
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Display Email */
+.display-email {
+  margin: 10px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #4267b2; /* Slate gray */
+ 
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   
 }
 
 footer a {
   text-decoration: none;
-  color : #333;
+  color: #f2f2f2; /* Light grey */
+  border-radius: 20px;
 }
-/* Navbar Styling */
-nav {
+
+/* Main Content Styles */
+main {
+  flex: 1; /* Take up remaining space */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px; /* Adjust as needed */
-  background-color: #f8f8f8; /* Adjust as needed */
-  border-bottom: 1px solid #ddd; /* Adjust as needed */
-  color: #333; /* Adjust as needed */
-}
-
-/* Navbar Left Side (Home) */
-nav .home-link {
-  flex: 1;
-}
-
-/* Navbar Center Links */
-nav .app-links {
-  display: flex;
-  justify-content: center;
-  flex: 2;
-}
-
-/* Navbar Right Side (Account and Logout) */
-nav .user-logged-in {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  justify-content: flex-end;
-}
-
-nav .user-logged-out {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between login and register links */
-}
-
-/* Navbar Link Styling */
-nav a {
-  text-decoration: none;
-  color: #333; /* Adjust as needed */
-  margin: 0 10px; /* Space between links */
-}
-
-nav a:hover {
-  text-decoration: underline;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically if needed */
+  padding: 20px; /* Add padding if required */
 }
 
 
-/* Main Container Styling */
-.container {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
+
+.cv-comments{
+  width: 500px;
+  height: 30px;
+  flex-direction: column;
+  margin : 10px;
 }
 
-/* Headings */
-h1, h2 {
-  color: #333;
+.cv-textarea {
+  width: 900px;
+  height: 200px;
+  flex-direction: column;
+  margin : 10px;
 }
 
-/* Application Card Styling */
-.app-container {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Button Styling */
 button {
-  background-color: #524e58bd;
-  color: white;
+  background-color: #1f1f28; /* Slate gray */
+  color: #f2f2f2; /* Light grey */
+  padding: 10px;
+  margin: 10px;
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
+/* Application Card Styles */
+.app-container {
+  width: 300; /* Set width */
+  height: 180; /* Set height */
+  background-color: #ffffff; /* White background for the card */
+  border: 1px solid #ddd; /* Light border for definition */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 2px; /* Padding inside the card */
+  margin: 3px;
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  position: relative; /* For positioning the drag handle */
+  overflow: hidden; /* Hide any overflow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.app-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  transform: translateY(-4px); /* Slight lift effect on hover */
+}
+
+/* Image Style */
+.company-logo {
+  width: 80px; /* Fixed width for image */
+  height: 80px; /* Fixed height for image */
+  object-fit: cover; /* Cover the space while maintaining aspect ratio */
+  border-radius: 4px; /* Rounded corners for image */
+  margin-right: 10px; /* Space between image and text */
+}
+
+/* Content Area Style */
+.content {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Drag Handle Style */
+.drag-handle {
+  cursor: grab; /* Indicate drag handle */
+  margin: 0; /* Remove margin */
+  font-size: 1.1rem; /* Slightly larger font size for the title */
+  color: #333; /* Darker color for the title */
+  padding-bottom: 5px; /* Spacing below the title */
+  border-bottom: 1px solid #ddd; /* Underline effect for the title */
+  margin-bottom: 10px; /* Space below the title */
+}
+
+/* Text Style */
+.app-container p {
+  margin: 4px 0; /* Margins for paragraph spacing */
+  font-size: 0.9rem; /* Smaller font size for details */
+  color: #555; /* Slightly lighter color for details */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Ellipsis for overflowing text */
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Button Styles */
+button {
+  background-color: #28281f; /* Primary button color */
+  color: #ffffff; /* Button text color */
+  border: none; /* Remove default button border */
+  padding: 8px 16px; /* Padding inside the button */
+  border-radius: 4px; /* Rounded corners for the button */
+  cursor: pointer; /* Pointer cursor for button */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  transition: background-color 0.3s ease; /* Smooth color transition */
+  margin-top: auto; /* Push button to the bottom */
+}
+
 button:hover {
-  background-color: #6b816c4f;
+  background-color: rgba(0, 87, 179, 0.845); /* Darker color on hover */
 }
 
-/* All Applications Layout */
-.all-applications {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-  gap: 20px; /* Space between cards */
-  padding: 20px;
-  box-sizing: border-box; /* Include padding in width */
-}
 
-/* Column Styling (Optional for Specific Layouts) */
-.column {
+.small-button{
+  background-color: #28281f; /* Slate gray */
+  color: #f2f2f2; /* Light grey */
+  padding: 10px;
   margin: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
 }
 
-/* Body Styling for Centered Content */
-main {
+.small-button:hover {
+  background-color: #28281f; /* Darker shade for hover effect */
+  border-radius: 4px;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.view-tailored-cv{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-items: flex-start;
+
+  margin-top: 10px;
 }
-
-
