@@ -57,8 +57,9 @@ function UploadACv() {
    
     <div>
         <h3>Paste CV</h3>
-        <form onSubmit={handleCvSubmit}>
+        <form className="cv-form" onSubmit={handleCvSubmit}>
           <textarea
+          className="cv-textarea"
             placeholder="Paste your CV content here"
             value={cvContent}
             onChange={(e) => setCvContent(e.target.value)}
@@ -66,6 +67,7 @@ function UploadACv() {
             cols="50"
           />
           <input
+          className='cv-comments'
             type="text"
             placeholder="Add comments for your CV"
             value={cvComments}
