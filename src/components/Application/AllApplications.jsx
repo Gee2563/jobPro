@@ -99,7 +99,7 @@ function AllApplications() {
             </div>
         </div>
       </DragDropContext>
-     
+  
     </main>
   );
 }
