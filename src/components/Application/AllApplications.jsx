@@ -72,8 +72,16 @@ function AllApplications() {
 
   return (
     console.log('Applications:', applications),
-    <div id='all-applications'>
+
+    <main>
+      <div className='top-container'>
       <h1>All Applications</h1>
+      <Link to="/applications/new">
+        <button>Create New Application</button>
+      </Link>
+
+      </div>
+      
       <DragDropContext onDragEnd={onDragEnd}>
       <div className="flex w-full flex-col lg:flex-row">
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -91,10 +99,8 @@ function AllApplications() {
             </div>
         </div>
       </DragDropContext>
-      <Link to="/applications/new">
-        <button>Create New Application</button>
-      </Link>
-    </div>
+     
+    </main>
   );
 }
 
