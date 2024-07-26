@@ -2,7 +2,7 @@ import React from "react";
 
 function Projects() {
     return (
-        <main>
+        <>
         <h1>Projects</h1>
         <p>A full list of my projects: </p>
         <ul>
@@ -14,7 +14,7 @@ function Projects() {
             <p> The backend for JobPro</p>
             </li>
             </ul>
-        </main>
+        </>
     );
     }
 
