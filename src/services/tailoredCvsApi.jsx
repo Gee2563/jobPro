@@ -3,7 +3,7 @@ import axios from 'axios';
 const token = localStorage.getItem('token');
 
 const api = axios.create({
-  baseURL: 'https://jobpro-backend.onrender.comw/api',
+  baseURL: 'http://localhost:5000/api',
   headers: {
     'Content-Type': 'application/json',
   }
