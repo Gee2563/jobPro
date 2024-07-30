@@ -10,31 +10,37 @@ function Home() {
 
   return (
   <>
-  <div className="welcome-container">
-    <div className="Welcome">
+  <div className="welcome">
+  <div className="welcome-left">
     <h1>Welcome to JobPro</h1>
     <p>Track your job applications and manage your career progress efficiently.</p>
+    <div className="snapshot">
+        {/* Include a snapshot of the job tracker here */}
+      </div>
     </div>
 
-      
+    <div className="welcome-right">
       {!user && ( // Check if the user is not authenticated
+      // Will build card for login and register
         <div className="welcome-login-reg">
           <Login />
-          <button href="/register">
-            Register
+
+          <button>
+          <Link to="/register" >Register</Link>
           </button>
+          
+    
         </div>
       )}
       {user && ( // Check if the user is authenticated
-        <div>
+        <div className='welcome-back'>
           <p>Welcome back!</p>
           <Link to="/applications" className="btn">View Applications</Link>
         </div>
       )}
-      <div className="snapshot">
-        {/* Include a snapshot of the job tracker here */}
+      
       </div>
-      </div>
+    </div>
       </>
   );
 }

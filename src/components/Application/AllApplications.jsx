@@ -15,8 +15,8 @@ function AllApplications() {
     const fetchApplications = async () => {
       try {
         const response = await getAllApplications();
-        console.log('Response:', response); // Should log the response object
-        setApplications(response || []); // Access the correct part of the response
+        console.log('Response:', response);
+        setApplications(response || []); 
         setLoading(false);
       } catch (error) {
         console.error('Failed to fetch applications:', error);
@@ -65,8 +65,8 @@ function AllApplications() {
   const applicationStages = [
     { title: 'Active and Researching', filter: app => ['active/research'].includes(app.stage), sectionId: 'active/research' },
     { title: 'Applied', filter: app => app.stage === 'applied', sectionId: 'applied' },
-    { title: 'Follow-Ups', filter: app => app.stage === 'follow-ups', sectionId: 'follow-ups' },
     { title: 'Interviewing', filter: app => app.stage === 'interviewing', sectionId: 'interviewing' },
+    {title: 'Offers', filter: app => app.stage === 'offers', sectionId: 'offers'},
     { title: 'Rejected and Reviews', filter: app => app.stage === 'reject/reviews', sectionId: 'reject/reviews' },
   ];
 
