@@ -47,6 +47,7 @@ function NewApplication() {
       console.log('I have received this response from the backend:', response.status);
       if (response.status === 201) {
         alert('Application added successfully');
+        // is there a cleaner way to reset the form?
         setFormData({
           companyName: '',
           companyWebsite: '',
@@ -87,7 +88,6 @@ function NewApplication() {
       <select name="stage" value={formData.stage} onChange={handleChange}>
         <option value="active/research">Active/Researching</option>
         <option value="applied">Applied</option>
-        <option value="follow-ups">Follow Ups</option>
         <option value="interviewing">Interviewing</option>
         <option value="offers">Offers</option>
         <option value="reject/reviews">Reject/Reviews</option>

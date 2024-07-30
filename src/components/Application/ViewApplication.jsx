@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getApplicationById, updateApplication } from '../../services/applicationApi';
 
+
 function ViewApplication() {
   const { id } = useParams();
   const [application, setApplication] = useState(null);
@@ -43,6 +44,7 @@ function ViewApplication() {
     }
   };
 
+  // Can this be refactored?
   return (
     <div>
       <h2>{application.companyName}</h2>
@@ -152,7 +154,7 @@ function ViewApplication() {
           >
             <option value="active/research">Active/Researching</option>
             <option value="applied">Applied</option>
-            <option value="follow-ups">Follow Ups</option>
+        
             <option value="interviewing">Interviewing</option>
             <option value="offers">Offers</option>
             <option value="reject/reviews">Reject/Reviews</option>

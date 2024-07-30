@@ -3,6 +3,7 @@ import { Draggable } from "@hello-pangea/dnd";
 import { Link } from 'react-router-dom';
 
 const ApplicationCard = ({ app, index }) => {
+  // move validator to either NewApplication on submit or backend 
   const validatedDomain = app.companyWebsite.replace(/(^\w+:|^)\/\//, '')
   return(
   <Draggable draggableId={app._id} index={index}>

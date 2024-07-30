@@ -22,11 +22,12 @@ import ViewUploadedCv from './components/UploadedCvs/ViewUploadedCv';
 import { AuthProvider } from './context/AuthContext';
 
 
+// Issue with reloading - When I hit refresh, I'm automatically sent to login despite being logged in.
 
 function App() {
   return (
     <div className='screen'>
- <AuthProvider>
+<AuthProvider>
       <Router>
         <Navbar />
           <Routes>
@@ -51,7 +52,7 @@ function App() {
     </AuthProvider>
       
     </div>
-   
+  
   );
 }
 

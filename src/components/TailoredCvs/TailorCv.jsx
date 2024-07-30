@@ -73,6 +73,7 @@ const TailorCv = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
+    // Can this be refactored?
     return (
         <main>
             <h1>Tailor CV</h1>

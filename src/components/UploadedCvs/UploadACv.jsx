@@ -12,6 +12,7 @@ function UploadACv() {
   useEffect(() => {
     const fetchCvs = async () => {
       try {
+        // cons cvs from above is not being updated?
         const cvs = await getUploadedCvs(user.token);
         setCvs(cvs);
 

@@ -1,6 +1,7 @@
 import React from "react";
 
 function About() {
+    // Hardcoded, ok?
     return (
         <>
         <h1>About JobPro</h1>

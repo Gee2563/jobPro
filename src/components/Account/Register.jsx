@@ -8,7 +8,7 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const { setUser } = useContext(AuthContext); // Ensure AuthContext is imported and used correctly
+  const { setUser } = useContext(AuthContext); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -18,10 +18,10 @@ function Register() {
       return;
     }
     try {
-      const { token, user } = await register(email, password); // Use the register function from api.js
+      const { token, user } = await register(email, password); 
       localStorage.setItem('authToken', token);
-      setUser(user); // Ensure setUser is a function provided by AuthContext
-      navigate('/'); // Redirect to home page
+      setUser(user); 
+      navigate('/'); 
     } catch (error) {
       console.error('Registration failed:', error.message);
       alert('Registration failed. Please check the console for details.');

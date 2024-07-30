@@ -10,8 +10,10 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
     if (token) {
       console.log('Token from localStorage:', token);
+
+      // rest of axios code is in services dir - OK to leave this here?
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get('/api/users/me')  // Make sure this is the correct endpoint
+      axios.get('/api/users/me')  
         .then(response => {
           console.log('User data:', response.data);
           setUser(response.data);

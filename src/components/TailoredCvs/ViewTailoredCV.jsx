@@ -63,7 +63,8 @@ function ViewTailoredCv() {
                         value={tailoredCv.tailoredCvContent}
                         onChange={handleChange}
                         rows="10"
-                        style={{ width: '100%', boxSizing: 'border-box' }} // Ensure it fits within its container
+                        // Style not working as expected
+                        style={{ width: '100%', boxSizing: 'border-box' }} 
                     />
                     <button onClick={handleUpdate}>Save</button>
                     <button onClick={() => setIsEditing(false)}>Cancel</button>
