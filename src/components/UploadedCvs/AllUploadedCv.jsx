@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import  { getUploadedCvs } from '../../services/uploadedCvsApi';
-import ViewUploadedCv from './ViewUploadedCv';
+
 
 function AllUploadedCv() {
     const [cvs, setCvs] = useState([]);
