@@ -22,6 +22,7 @@ function Login() {
 
   return (
     <form className="Login" onSubmit={handleSubmit}>
+      <h1>Have an account?</h1>
       <input
         type="email"
         value={email}
@@ -29,6 +30,7 @@ function Login() {
         placeholder="Email"
         required
       />
+      <br />
       <input
         type="password"
         value={password}
@@ -36,6 +38,7 @@ function Login() {
         placeholder="Password"
         required
       />
+      <br />
       <button type="submit">Login</button>
     </form>
   );
