@@ -31,9 +31,11 @@ function App() {
       <Router>
         <Navbar />
           <Routes>
+            
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+
             <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
             <Route path="/applications" element={<ProtectedRoute><AllApplications /></ProtectedRoute>} />
             <Route path="/applications/new" element={<ProtectedRoute><NewApplication /></ProtectedRoute>} />
