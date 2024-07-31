@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import '../style.css';
 import Login from "./Account/Login";
-import Register from "./Account/Register";
+import screenshotImage from "./static/screenshot.png";
+
 function Home() {
   const { user } = useContext(AuthContext); // Access user from AuthContext
 
@@ -14,9 +15,10 @@ function Home() {
   <div className="welcome-left">
     <h1>Welcome to JobPro</h1>
     <p>Track your job applications and manage your career progress efficiently.</p>
-    <div className="snapshot">
-        {/* Include a snapshot of the job tracker here */}
-      </div>
+    
+    <div className="screenshot">
+      <img src={screenshotImage} alt="Screenshot" width={"900px"} height={"350px"}/>
+    </div>
     </div>
 
     <div className="welcome-right">
