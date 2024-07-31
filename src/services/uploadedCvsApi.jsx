@@ -15,6 +15,7 @@ export const getUploadedCvs = async () => {
       const response = await api.get('/uploaded-cvs', {
         headers: { Authorization: `Bearer ${token}` }
       });
+      console.log(response.data);
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to fetch uploaded CVs');
