@@ -47,7 +47,7 @@ function AllApplications() {
       
       await updateApplicationStage(result.draggableId, destinationStage);
       // will remove this line when I'm 100% happy with the code
-      alert('Application stage updated');
+    
     } catch (error) {
       console.error('Failed to update application stage:', error);
 
