@@ -25,7 +25,7 @@ function Navbar() {
           <div className ='nav-center'>
           <Link to="/applications">Application Tracker</Link>
           <Link to="/tailoredcv">Tailored CV</Link>
-          <Link to="/generate-cover-letter">Cover Letter Gen</Link>
+          <Link to="/genletter">Cover Letter Gen</Link>
           {/* <Link to="Interview Prep">Interview Prep</Link> */}
           {/* <Link to="Job Search">Job Search</Link>*/}
           </div>
