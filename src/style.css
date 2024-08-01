@@ -175,7 +175,7 @@ main {
 }
 
 .cv-textarea {
-  width: 900px;
+  width: 800px;
   height: 200px;
   flex-direction: column;
   margin : 10px;
@@ -297,6 +297,14 @@ button:hover {
 }
 
 .view-tailored-cv{
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+
+  margin-top: 10px;
+}
+
+.view-genletter{
   display: flex;
   flex-direction: column;
   justify-items: flex-start;
