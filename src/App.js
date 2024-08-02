@@ -28,12 +28,13 @@ import ViewGenLetter from './components/CoverLetters/ViewGenLetter';
 
 function App() {
   return (
-    <div className='screen'>
+    <div className="screen">
 <AuthProvider>
       <Router>
-        <Navbar />
-          <Routes>
-            
+      <Navbar />
+      <main>
+       
+          <Routes> 
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
@@ -51,15 +52,14 @@ function App() {
             <Route path="/tailoredcv/:id" element={<ProtectedRoute><ViewTailoredCv /></ProtectedRoute>} />
             <Route path="/uploadedcv" element={<ProtectedRoute><AllUploadedCv /></ProtectedRoute>} />
             <Route path="/uploadedcv/new" element={<ProtectedRoute><UploadACv /></ProtectedRoute>} />
-            <Route path="/uploadedcv/:id" elemgent={<ProtectedRoute><ViewUploadedCv /></ProtectedRoute>} />
+            <Route path="/uploadedcv/:id" element={<ProtectedRoute><ViewUploadedCv /></ProtectedRoute>} />
             <Route path="/genletter" element={<ProtectedRoute><GenLetter /></ProtectedRoute>} />
             <Route path="/genletter/:id" element={<ProtectedRoute><ViewGenLetter /></ProtectedRoute>} />
-            
           </Routes>
+      </main>
         <Footer />
       </Router>
     </AuthProvider>
-      
     </div>
   
   );
