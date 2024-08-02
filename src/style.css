@@ -1,19 +1,51 @@
-/* General Body and Screen Styles */
-.screen {
-  background-color: #f0f2f5;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  color: #1f1f28;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensure the screen takes up at least the full viewport height */
+/* General Body and HTML Styles */
+body, html {
+  height: 100%;
+  margin: 0; /* Remove default margin */
 }
 
-/* Remove default body margin */
-body {
-  margin: 0;
+/* Full-height screen container */
+.screen {
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Column direction for flex container */
+  min-height: 100vh; /* Ensure the screen takes up at least the full viewport height */
+  background-color: #f0f2f5; /* Background color for the screen */
+  font-family: 'Roboto', sans-serif; /* Font family */
+  font-size: 16px; /* Base font size */
+  color: #1f1f28; /* Text color */
 }
+
+/* Main content area */
+main {
+  flex: 1; /* Take up remaining space */
+  padding: 20px; /* Padding for main content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically if needed */
+}
+
+/* Footer styling */
+footer {
+  background-color: #0b132b; /* Slate gray */
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+footer a {
+  text-decoration: none;
+  color: #f2f2f2; /* Light grey */
+  border-radius: 20px;
+}
+
+
+/* Full-height screen container */
+
+/* Main content area */
+
 
 .welcome{
   display: flex;
@@ -69,15 +101,19 @@ body {
 
 /* Navbar Styles */
 nav {
-  background-color:  #0b132b
-  ; /* Slate gray */
-  color: #f5feff
-  ; /* Light grey */
-  padding: 10px;
+  background-color: #0b132b; /* Slate gray */
+  color: #f5feff; /* Light grey */
+  padding: 10px 20px; /* Add some horizontal padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0px;
+  position: fixed;
+  top: 0; /* Fix the position to the top */
+  left: 0; /* Fix the position to the left */
+  width: 100%; /* Ensure the navbar takes the full width */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+  z-index: 1000; /* Ensure the navbar is above other content */
 }
 
 /* Home Link Style */
@@ -139,31 +175,9 @@ nav .user-logged-in {
 }
 
 /* Footer Styles */
-footer {
-  background-color: #0b132b; /* Slate gray */
- 
-  padding: 10px;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-}
-
-footer a {
-  text-decoration: none;
-  color: #f2f2f2; /* Light grey */
-  border-radius: 20px;
-}
 
 /* Main Content Styles */
-main {
-  flex: 1; /* Take up remaining space */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically if needed */
-  padding: 20px; /* Add padding if required */
-}
+
 
 
 
@@ -310,4 +324,402 @@ button:hover {
   justify-items: flex-start;
 
   margin-top: 10px;
+}
+
+.view-application-container, .new-application-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%; /* Full height of the viewport */
+}
+
+.view-application-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%; /* Adjust width as needed */
+  max-width: 800px; /* Set a maximum width for better readability */
+  margin-top: 10px; /* Optional margin, adjust as needed */
+}
+.view-app-top-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+
+  padding: 10px; /* Add some padding for spacing */
+  border-bottom: 1px solid #ddd; /* Optional border for separation */
+}
+
+.view-app-top-left-side img {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 10px; /* Space between image and text */
+}
+
+.view-app-top-right-side {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.view-app-top-right-side h2 {
+  margin: 0; /* Remove default margin */
+}
+
+.view-app-top-right-side div {
+  margin-bottom: 10px; /* Space between fields */
+}
+
+.view-app-bottom-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: auto; /* Add vertical scroll if needed */
+  flex: 1; /* Make sure it fills the remaining space */
+}
+
+.view-app-bottom-container div {
+  margin-bottom: 10px; /* Space between fields */
+}
+
+.new-application-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px; /* Adjust as needed */
+  width: 100%; /* Ensure the form width does not exceed the container */
+  padding: 20px;
+  border: 1px solid #ddd; /* Light border around the form */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Input and textarea styles */
+.new-application-form input,
+.new-application-form textarea,
+.new-application-form select {
+  width: 100%; /* Full width of the form container */
+  padding: 8px; /* Reduced padding */
+  margin-bottom: 10px; /* Space between fields */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px; /* Font size for better readability */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Textarea specific styles */
+.new-application-form textarea {
+  min-height: 60px; /* Minimum height for textareas */
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Button styles */
+
+/* Error message styles */
+.error {
+  color: #e74c3c; /* Red color for error messages */
+  font-size: 12px; /* Font size for error messages */
+  margin-bottom: 10px; /* Space below the error message */
+}
+
+.GPT-form-container form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Allow items to wrap if they exceed the container width */
+  gap: 20px; /* Space between each form element */
+  align-items: center; /* Align items vertically */
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd; /* Light border for visual separation */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+/* Label styling */
+.GPT-form-container label {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px; /* Space between labels */
+  flex: 1; /* Allow labels to grow if needed */
+}
+
+/* Input and select styling */
+.GPT-form-container input,
+.GPT-form-container select {
+  width: 100%; /* Full width of the label */
+  padding: 8px;
+  margin-top: 5px; /* Space between label and input/select */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Container for account settings */
+/* Container for account settings */
+.account-container {
+  background-color: #ffffff; /* White background for the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  padding: 20px; /* Padding inside the container */
+  max-width: 600px; /* Max width for readability */
+  margin: 20px auto; /* Center container horizontally with margin */
+  box-sizing: border-box; /* Ensure padding and borders are included in the width/height */
+}
+
+/* Heading styles */
+.account-container h2 {
+  font-size: 24px; /* Font size for the main heading */
+  margin-bottom: 20px; /* Space below the main heading */
+  color: #1f1f28; /* Text color */
+}
+
+.account-container h3 {
+  font-size: 20px; /* Font size for subheadings */
+  margin-bottom: 15px; /* Space below subheadings */
+  color: #333; /* Text color */
+}
+
+/* Input styles */
+.password-input {
+  width: 100%; /* Full width of the container */
+  max-width: 100%; /* Ensure it doesn’t exceed the container width */
+  padding: 10px; /* Padding inside the input */
+  margin-bottom: 15px; /* Space below each input field */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  overflow: hidden; /* Ensure no content overflows */
+}
+
+/* Button styles */
+
+/* Section styling for UploadACv and AllUploadedCv */
+.account-container > div {
+  margin-bottom: 20px; /* Space below each section */
+}
+
+/* Ensure UploadACv and AllUploadedCv components have consistent styles */
+.UploadACv, .AllUploadedCv {
+  margin-top: 20px; /* Space above each section */
+}
+
+/* Styling for container div */
+.account-container > div {
+  margin-bottom: 20px; /* Space below the section */
+}
+
+/* Form styling */
+.cv-form {
+  display: flex; /* Flexbox layout for the form */
+  flex-direction: column; /* Arrange items in a column */
+  gap: 10px; /* Space between form elements */
+}
+
+/* Textarea styling */
+.cv-textarea {
+  width: 100%; /* Full width of the container */
+  padding: 10px; /* Padding inside the textarea */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in the width */
+  resize: vertical; /* Allow vertical resizing */
+  overflow: auto; /* Ensure proper overflow handling */
+}
+
+/* Input styling */
+.cv-comments {
+  width: 100%; /* Full width of the container */
+  padding: 10px; /* Padding inside the input */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+
+
+
+/* Container for all uploaded CVs */
+.all-uploaded-cvs {
+  background-color: #ffffff; /* White background for the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  padding: 20px; /* Padding inside the container */
+  max-width: 800px; /* Max width for readability */
+  margin: 20px auto; /* Center container horizontally */
+  box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+
+/* Heading styles */
+.all-uploaded-cvs h2 {
+  font-size: 24px; /* Font size for the main heading */
+  margin-bottom: 20px; /* Space below the heading */
+  color: #1f1f28; /* Text color */
+}
+
+/* List styling */
+.all-uploaded-cvs ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+/* List item styling */
+.all-uploaded-cvs li {
+  margin-bottom: 10px; /* Space between list items */
+}
+
+/* Link styling */
+.all-uploaded-cvs a {
+  text-decoration: none; /* Remove underline from links */
+  color: #007bff; /* Primary link color */
+  font-size: 16px; /* Font size for links */
+}
+
+.all-uploaded-cvs a:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #0056b3; /* Darker color on hover */
+}
+
+/* Additional spacing for the upload link */
+.all-uploaded-cvs > a {
+  display: inline-block; /* Ensure the link doesn't stretch the full width */
+  padding: 10px; /* Padding around the link */
+  margin-top: 20px; /* Space above the link */
+  border: 1px solid #007bff; /* Border around the link */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #f0f8ff; /* Background color */
+  color: #007bff; /* Text color */
+  text-align: center; /* Center text inside the link */
+  text-decoration: none; /* Remove underline from link */
+}
+
+.all-uploaded-cvs > a:hover {
+  background-color: #e0eaff; /* Background color on hover */
+  border-color: #0056b3; /* Border color on hover */
+}
+
+
+/* Container for the GPT response view */
+.view-gpt-response {
+  background-color: #ffffff; /* White background for readability */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  padding: 20px; /* Padding inside the container */
+  max-width: 800px; /* Max width for content */
+  margin: 20px auto; /* Center horizontally with margin */
+  box-sizing: border-box; /* Include padding and border in the width/height */
+}
+
+/* Heading styling */
+.view-gpt-response h2 {
+  font-size: 24px; /* Font size for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+  color: #1f1f28; /* Text color */
+}
+
+/* Textarea styling */
+.view-gpt-response textarea {
+  width: 100%; /* Full width of the container */
+  padding: 10px; /* Padding inside the textarea */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in width */
+  resize: vertical; /* Allow vertical resizing only */
+  margin-bottom: 10px; /* Space below the textarea */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Preformatted text styling */
+.view-gpt-response .view-gpt-content {
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  background-color: #f8f9fa; /* Light background color */
+  padding: 10px; /* Padding around the text */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  overflow: auto; /* Handle overflow */
+  margin-bottom: 10px; /* Space below the content */
+}
+
+/* Container for the CV details */
+.cv-container {
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  padding: 20px; /* Padding inside the container */
+  max-width: 800px; /* Max width for the container */
+  margin: 20px auto; /* Center the container horizontally */
+  box-sizing: border-box; /* Include padding and border in width/height */
+}
+
+/* Styling for loading state */
+.loading {
+  font-size: 18px;
+  color: #007bff; /* Primary color */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Styling for error state */
+.error {
+  font-size: 18px;
+  color: #dc3545; /* Danger color */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Styling for CV comments */
+.cv-comments {
+  margin-bottom: 20px; /* Space below comments */
+}
+
+/* Styling for CV content */
+.cv-content {
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  background-color: #f8f9fa; /* Light background color */
+  padding: 15px; /* Padding inside the content area */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  overflow: auto; /* Handle overflow */
+}
+
+/* Heading styles */
+.cv-container h2, .cv-container h3 {
+  color: #1f1f28; /* Text color */
+}
+
+.cv-container h2 {
+  font-size: 24px; /* Font size for main heading */
+}
+
+.cv-container h3 {
+  font-size: 20px; /* Font size for subheadings */
+  
+}
+
+
+/* Add these styles to your CSS file */
+
+.modal {
+  position: relative;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  bottom: auto;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
