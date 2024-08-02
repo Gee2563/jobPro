@@ -2,12 +2,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { addUploadedCv, getUploadedCvs} from '../../services/uploadedCvsApi';
+import { useNavigate } from 'react-router-dom';
 
 function UploadACv() {
   const { user } = useContext(AuthContext);;
   const [cvs, setCvs] = useState([]);
   const [cvContent, setCvContent] = useState('');
   const [cvComments, setCvComments] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCvs = async () => {
@@ -43,6 +45,7 @@ function UploadACv() {
         setCvComments('');
         setCvs((prevCvs) => [data, ...
             prevCvs]);
+
 
 
       } catch (error) {
