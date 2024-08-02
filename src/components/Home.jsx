@@ -36,8 +36,9 @@ function Home() {
       )}
       {user && ( // Check if the user is authenticated
         <div className='welcome-back'>
-          <p>Welcome back!</p>
-          <Link to="/applications" className="btn">View Applications</Link>
+          
+          <button><Link to="/applications" className="btn">View Applications</Link>
+            </button>
         </div>
       )}
       
