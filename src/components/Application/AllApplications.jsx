@@ -5,6 +5,7 @@ import { getAllApplications, updateApplicationStage, updatedApplication } from '
 import ApplicationSection from './ApplicationSection';
 
 
+
 function AllApplications() {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -73,7 +74,7 @@ function AllApplications() {
   return (
     console.log('Applications:', applications),
 
-    <main>
+    <div className='all-applications-container'>
       <div className='top-container'>
       <h1>All Applications</h1>
       <Link to="/applications/new">
@@ -100,7 +101,7 @@ function AllApplications() {
         </div>
       </DragDropContext>
   
-    </main>
+    </div>
   );
 }
 
