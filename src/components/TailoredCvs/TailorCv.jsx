@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getTailoredCvs, addTailoredCv } from "../../services/tailoredCvsApi";
+import { addTailoredCv } from "../../services/tailoredCvsApi";
 import { getUploadedCvs } from "../../services/uploadedCvsApi";
 
 
@@ -75,7 +75,7 @@ const TailorCv = () => {
 
   // Can this be refactored?
   return (
-    <main>
+    <div className="GPT-form-container">
       <h1>Tailor CV</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -94,6 +94,7 @@ const TailorCv = () => {
             ))}
           </select>
         </label>
+        <br />
         <label>
           Company Website:
           <input
@@ -105,6 +106,7 @@ const TailorCv = () => {
             required
           />
         </label>
+        <br />
         <label>
           Job Description URL:
           <input
@@ -116,6 +118,7 @@ const TailorCv = () => {
             required
           />
         </label>
+        <br />
         <button type="submit">Tailor CV</button>
       </form>
     
@@ -129,7 +132,7 @@ const TailorCv = () => {
         </div>
 
       )}
-    </main>
+    </div>
   );
 };
 

@@ -54,24 +54,24 @@ function ViewTailoredCv() {
     };
 
     return (
-        <div className="view-tailored-cv">
+        <div className="view-gpt-response">
             <h2>Your Tailored CV</h2>
             {isEditing ? (
                 <div>
                     <textarea
-                        name="tailoredCvContent"
+                        name="view-gpt-content"
                         value={tailoredCv.tailoredCvContent}
                         onChange={handleChange}
                         rows="10"
                         // Style not working as expected
-                        style={{ width: '100%', boxSizing: 'border-box' }} 
+                        
                     />
                     <button onClick={handleUpdate}>Save</button>
                     <button onClick={() => setIsEditing(false)}>Cancel</button>
                 </div>
             ) : (
                 <div>
-                    <pre className="tailored-cv-content">{tailoredCv.tailoredCvContent}</pre>
+                    <pre className="view-gpt-content">{tailoredCv.tailoredCvContent}</pre>
                     <button onClick={handleEdit}>Edit</button>
                 </div>
             )}
