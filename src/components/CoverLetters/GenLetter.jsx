@@ -75,7 +75,7 @@ const GenLetter = () => {
 
   // Can this be refactored?
   return (
-    <main>
+    <div className="GPT-form-container">
       <h1>Generate Cover Letter</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -129,7 +129,7 @@ const GenLetter = () => {
         </div>
 
       )}
-    </main>
+    </div>
   );
 };
 

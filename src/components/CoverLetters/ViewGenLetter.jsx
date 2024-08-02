@@ -55,7 +55,7 @@ function ViewGenLetter() {
     };
 
     return (
-        <div className="view-genletter">
+        <div className="view-gpt-response">
             <h2>Your cover letter</h2>
             {isEditing ? (
                 <div>
@@ -65,14 +65,13 @@ function ViewGenLetter() {
                         onChange={handleChange}
                         rows="10"
                         // Style not working as expected
-                        style={{ width: '100%', boxSizing: 'border-box' }} 
                     />
                     <button onClick={handleUpdate}>Save</button>
                     <button onClick={() => setIsEditing(false)}>Cancel</button>
                 </div>
             ) : (
                 <div>
-                    <pre className="genletter-content">{genLetter.GenLetterContent}</pre>
+                    <pre className="view-gpt-content">{genLetter}</pre>
                     <button onClick={handleEdit}>Edit</button>
                 </div>
             )}
