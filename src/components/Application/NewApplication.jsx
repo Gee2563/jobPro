@@ -34,6 +34,7 @@ function NewApplication() {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -70,7 +71,8 @@ function NewApplication() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className='new-application-container'>
+    <form className='new-application-form' onSubmit={handleSubmit}>
       <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} placeholder="Company Name" required />
       {errors.companyName && <div className="error">{errors.companyName}</div>}
       <input type="text" name="companyWebsite" value={formData.companyWebsite} onChange={handleChange} placeholder="Company Website" required />
@@ -94,6 +96,7 @@ function NewApplication() {
       </select>
       <button type="submit">Add</button>
     </form>
+    </div>
   );
 }
 
