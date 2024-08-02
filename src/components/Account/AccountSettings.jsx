@@ -38,7 +38,7 @@ function Account() {
 
 
   return (
-    <main>
+    <div className='account-container'>
       <h2>Account Settings</h2>
       <div>
         <h3>Change Password</h3>
@@ -51,7 +51,7 @@ function Account() {
       </div>
       <UploadACv />
       <AllUploadedCv />
-    </main>
+    </div>
   );
 }
 
