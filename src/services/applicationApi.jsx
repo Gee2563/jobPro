@@ -72,3 +72,15 @@ export const updateApplication = async (applicationId, updatedData) => {
     throw new Error(error.response?.data?.message || 'Failed to update application');
   }
 };
+
+// Delete an application
+export const deleteApplication = async (applicationId) => {
+  try {
+    const response = await api.delete(`/applications/${applicationId}`, {
+      headers: getAuthHeaders(),
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Failed to delete application');
+  }
+};
