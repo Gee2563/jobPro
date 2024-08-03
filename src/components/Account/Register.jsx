@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../services/accountApi';
 import { AuthContext } from '../../context/AuthContext';
+import { passwordValid } from '../../utils/passwordValid';
 
 
 function Register() {
@@ -15,6 +16,10 @@ function Register() {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Passwords don't match!");
+      return;
+    }
+    if (!passwordValid(password)) {
+      alert('Password must be between 8 and 20 characters and contain at least one uppercase letter, one lowercase letter, and one number.');
       return;
     }
     try {

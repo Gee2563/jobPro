@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import UploadACv from '../UploadedCvs/UploadACv';
 import { getAccount, changePassword } from '../../services/accountApi';
 import AllUploadedCv from '../UploadedCvs/AllUploadedCv';
+import { passwordValid } from '../../utils/passwordValid';
 
 function Account() {
   const { user } = useContext(AuthContext);
@@ -22,6 +23,10 @@ function Account() {
   const handlePasswordChange = async () => {
     if (newPassword !== confirmPassword) {
       alert("Passwords don't match!");
+      return;
+    }
+    if (!passwordValid(newPassword)) {
+      alert('Password must be between 8 and 20 characters and contain at least one uppercase letter, one lowercase letter, and one number.');
       return;
     }
     try {
