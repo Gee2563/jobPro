@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
-import { updateApplication } from '../../services/applicationApi'; // Import the function
+import { updateApplication, deleteApplication} from '../../services/applicationApi'; // Import the function
+import {useNavigate} from 'react-router-dom';
 
 const ViewApplication = ({ application, onClose }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedApplication, setUpdatedApplication] = useState(application);
+  const navigate = useNavigate();
 
   const handleEdit = () => {
     setIsEditing(true);
   };
 
+  const handleDelete = async () => {
+    try {
+      await deleteApplication(application._id);
+      alert('Application deleted');
+      onClose();
+      window.location.reload();
+
+    } catch (error) {
+      console.error('Failed to delete application', error);
+    }
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpdatedApplication((prevApp) => ({ ...prevApp, [name]: value }));
@@ -160,8 +173,9 @@ const ViewApplication = ({ application, onClose }) => {
               <button onClick={() => setIsEditing(false)}>Cancel</button>
             </div>
           ) : (
-            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleEdit}>Edit</button>     
           )}
+          <button onClick={handleDelete}>Delete</button>
         </div>
       
       </div>

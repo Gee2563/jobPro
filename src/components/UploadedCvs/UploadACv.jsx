@@ -45,7 +45,7 @@ function UploadACv() {
         setCvComments('');
         setCvs((prevCvs) => [data, ...
             prevCvs]);
-
+        window.location.reload();
 
 
       } catch (error) {

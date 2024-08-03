@@ -45,23 +45,10 @@ function NewApplication() {
     }
     try {
       const response = await addApplication(formData);
-      console.log('I have received this response from the backend:', response.status);
-      if (response.status === 201) {
+      console.log('I have received this response from the backend:', response);
+      if (response) {
         alert('Application added successfully');
         // is there a cleaner way to reset the form?
-        setFormData({
-          companyName: '',
-          companyWebsite: '',
-          jobTitle: '',
-          pay: '',
-          jobDescription: '',
-          comments: '',
-          companyLinkedIn: '',
-          poiName: '',
-          poiLinkedIn: '',
-          extraInfo: '',
-          stage: 'active/research'
-        });
         navigate('/applications');
       }
     } catch (error) {
