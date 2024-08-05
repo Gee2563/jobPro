@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await login(email, password);
+      const response = await axios.post('/api/users/login', { email, password });
       console.log('Login response:', response.data);
       localStorage.setItem('authToken', response.data.token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
