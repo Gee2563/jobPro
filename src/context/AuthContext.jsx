@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import {login} from '../services/accountApi';
+
 
 const AuthContext = createContext();
 
@@ -28,7 +30,7 @@ const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('/api/users/login', { email, password });
+      const response = await login(email, password);
       localStorage.setItem('authToken', response.data.token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
       setUser(response.data);
