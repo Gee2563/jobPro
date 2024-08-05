@@ -1,7 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import {login} from '../services/accountApi';
-
+import { login as apiLogin, getAccount } from '../services/accountApi';
 
 const AuthContext = createContext();
 
@@ -13,12 +11,14 @@ const AuthProvider = ({ children }) => {
     if (token) {
       console.log('Token from localStorage:', token);
 
-      // rest of axios code is in services dir - OK to leave this here?
+      // Configure axios defaults
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get('/api/users/me')  
+
+      // Fetch user data
+      getAccount()
         .then(response => {
-          console.log('User data:', response.data);
-          setUser(response.data);
+          console.log('User data:', response);
+          setUser(response);
         })
         .catch(err => {
           console.error('Error fetching user data:', err);
@@ -30,13 +30,14 @@ const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('/api/users/login', { email, password });
-      console.log('Login response:', response.data);
-      localStorage.setItem('authToken', response.data.token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-      setUser(response.data);
+      const response = await apiLogin(email, password);
+      console.log('Login response:', response);
+      localStorage.setItem('authToken', response.token);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${response.token}`;
+      setUser(response.user); // Assuming `response.user` contains user data
     } catch (error) {
       console.error('Login error:', error);
+      // Optionally, handle error feedback to the user
     }
   };
 
