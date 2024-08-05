@@ -62,9 +62,7 @@ function ViewTailoredCv() {
                         name="view-gpt-content"
                         value={tailoredCv.tailoredCvContent}
                         onChange={handleChange}
-                        rows="10"
-                        // Style not working as expected
-                        
+                        rows="10" 
                     />
                     <button onClick={handleUpdate}>Save</button>
                     <button onClick={() => setIsEditing(false)}>Cancel</button>

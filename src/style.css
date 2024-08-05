@@ -453,9 +453,10 @@ button:hover {
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
+/* Container for account settings and register */
 /* Container for account settings */
-/* Container for account settings */
-.account-container {
+.account-container,
+.register-container {
   background-color: #ffffff; /* White background for the container */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */

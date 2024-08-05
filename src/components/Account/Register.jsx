@@ -38,18 +38,22 @@ function Register() {
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <label>Email:
+          <input className="password-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </label>
         </div>
         <div>
-          <label>Password:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <label>Password:
+          <input className="password-input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </label>
         </div>
         <div>
-          <label>Confirm Password:</label>
-          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+          <label>Confirm Password:
+          <input className="password-input" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+          </label>
         </div>
         <button type="submit">Register</button>
+        
       </form>
     </div>
   );

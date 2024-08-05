@@ -6,6 +6,7 @@ const ViewApplication = ({ application, onClose }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedApplication, setUpdatedApplication] = useState(application);
   const navigate = useNavigate();
+  const [companyurl, setCompanyUrl] = useState(application.companyWebsite);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -42,9 +43,10 @@ const ViewApplication = ({ application, onClose }) => {
       <div className="view-application-card">
         <div className="view-app-top-container">
           <div className="view-app-top-left-side">
-            <img
-              src={`https://img.logo.dev/${application.companyWebsite}?token=pk_GS8EES80RXOLepVgd1-2ZQ`}
-              alt="Company Logo"
+          <img 
+              className="company-logo" 
+              src={`https://img.logo.dev/${application.companyWebsite.replace(/(^\w+:|^)\/\//, '')}?token=pk_GS8EES80RXOLepVgd1-2ZQ`} 
+              alt="Company Logo" 
             />
           </div>
           <div className="view-app-top-right-side">
@@ -90,7 +92,7 @@ const ViewApplication = ({ application, onClose }) => {
           </div>
         </div>
         <div className="view-app-bottom-container">
-          <label>Job Description:
+          <label>Job Description: 
             {isEditing ? (
               <textarea
                 name="jobDescription"
@@ -101,6 +103,7 @@ const ViewApplication = ({ application, onClose }) => {
               <span>{application.jobDescription}</span>
             )}
           </label>
+          <br />
           <label>Remote/Hybrid:
             {isEditing ? (
               <input
