@@ -34,7 +34,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "https://jobpro-backend.onrender.com",
+  "proxy": "https://jobpro-backend1.onrender.com",
   "browserslist": {
     "production": [
       ">0.2%",

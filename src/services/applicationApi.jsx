@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://jobpro-backend.onrender.com/api',
+  baseURL: 'https://jobpro-backend1.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
