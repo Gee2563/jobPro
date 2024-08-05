@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate('/');
+      window.location.reload();
     } catch (error) {
       console.error('Failed to login', error);
       alert('Login failed. Please check your email and password.');
